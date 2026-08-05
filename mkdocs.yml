@@ -93,6 +93,14 @@ nav:
       - Models: models.md
       - WebSocket & Real-time: websocket.md
       - Examples: examples.md
+  - Box Fulfillment:
+      - Product Strategy: box-strategy.md
+      - System Architecture: box-system-architecture.md
+      - Software Architecture: box-software-architecture.md
+      - Deployment: box-deployment.md
+      - Stripe Setup: box-stripe-setup.md
+      - Pack Station SOP: box-pack-station.md
+      - Box Builder: box-builder.md
   - Tech:
       - Configuration: configuration.md
       - Usage: usage.md
