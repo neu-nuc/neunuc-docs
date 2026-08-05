@@ -110,6 +110,7 @@ nav:
       - FAQ: faq.md
       - Glossary: glossary.md
       - Changelog: changelog.md
+      - Build Log: build-log.md
 
 plugins:
   - search:
@@ -151,7 +152,6 @@ markdown_extensions:
   - tables
   - attr_list
   - md_in_html
-  - neunuc_icons
   - toc:
       permalink: true
       toc_depth: 3
