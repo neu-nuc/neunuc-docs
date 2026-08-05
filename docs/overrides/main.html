@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <meta name="theme-color" content="#1a1a1a">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="{{ page.title | default(config.site_name, true) }}">
+  <meta property="og:description" content="{{ config.site_description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ page.canonical_url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ base_url }}/assets/apple-touch-icon.png">
+{% endblock %}
+
+{% block announce %}
+{% endblock %}
