@@ -1,4 +1,4 @@
-name: Deploy docs to GitHub Pages
+name: Deploy docs to Cloudflare Pages
 
 on:
   push:
@@ -13,8 +13,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -35,16 +33,23 @@ jobs:
       - run: mkdocs build --site-dir site --strict
         env:
           PYTHONPATH: ${{ github.workspace }}
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
+          name: site
           path: site
 
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/deploy-pages@v4
-        id: deployment
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: site
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: neunuc-docs
+          directory: site
