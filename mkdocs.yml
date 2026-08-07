@@ -1,10 +1,10 @@
-site_name: NeuNuc Internal Operating Manual
-site_description: Proprietary system documentation. Not for public distribution.
+site_name: NeuNuc Documentation
+site_description: NeuNuc system docs — local-first operating layer, monorepo, and deployment guides.
 site_url: https://docs.neunuc.com/
 repo_url: https://github.com/neu-nuc/neunuc
 repo_name: neu-nuc/neunuc
 edit_uri: edit/main/docs/
-copyright: Copyright &copy; 2025 NeuNuc. Internal use only.
+copyright: Copyright &copy; 2025 NeuNuc
 
 theme:
   name: material
@@ -81,7 +81,10 @@ nav:
       - Metasystem: metasystem.md
       - Public Release: public-release.md
   - Apps:
-      - Ops Workspace: ops-workspace.md
+      - Ops Workspace:
+          - Overview: ops-workspace.md
+          - Public Site Builder: ops-public-site.md
+          - Discord Bot Operations: ops-discord-bot.md
       - nuc CLI: cli.md
       - Runtime: runtime.md
       - Operator Dashboard: operator-dashboard.md
@@ -93,6 +96,11 @@ nav:
       - Models: models.md
       - WebSocket & Real-time: websocket.md
       - Examples: examples.md
+  - Voice:
+      - Overview: voice-overview.md
+      - Setup & Configuration: voice-setup.md
+      - API Reference: voice-api.md
+      - Packaging & Deployment: voice-packaging.md
   - Box Fulfillment:
       - Product Strategy: box-strategy.md
       - System Architecture: box-system-architecture.md
@@ -152,6 +160,7 @@ markdown_extensions:
   - tables
   - attr_list
   - md_in_html
+  - neunuc_icons
   - toc:
       permalink: true
       toc_depth: 3

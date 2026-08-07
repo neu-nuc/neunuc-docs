@@ -1,6 +1,6 @@
-# NeuNuc Internal Operating Manual
+# NeuNuc Documentation
 
-Proprietary system documentation. Not for public distribution.
+NeuNuc system docs — local-first operating layer, monorepo, and deployment guides.
 
 Built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/). Served with basic auth. Deployed by you, not by a bot.
 

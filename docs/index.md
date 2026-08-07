@@ -1,8 +1,6 @@
-# :docs: NeuNuc Internal Operating Manual
+# :docs: NeuNuc Documentation
 
-Internal docs. Not for public distribution.
-
-This manual covers our local-first operating layer: how it boots, how the pieces connect, and where to look when something breaks. Everything here is internal.
+Welcome to the NeuNuc docs. This covers the local-first operating layer: how it boots, how the pieces connect, and where to look when something breaks.
 
 ---
 
