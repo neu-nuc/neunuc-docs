@@ -1,5 +1,5 @@
-site_name: NeuNuc Documentation
-site_description: NeuNuc system docs — local-first operating layer, monorepo, and deployment guides.
+site_name: NeuNuc
+site_description: NeuNuc — Local-first AI infrastructure. Federal-ready. Self-hosted. Under your control.
 site_url: https://docs.neunuc.com/
 repo_url: https://github.com/neu-nuc/neunuc
 repo_name: neu-nuc/neunuc
@@ -60,65 +60,74 @@ theme:
     - content.tabs.link
 
 nav:
-  - Home: index.md
-  - Lenses: lenses.md
-  - Site Map: sitemap.md
-  - Systems:
-      - Overview: overview.md
-      - Getting Started: getting-started.md
+  - Launch:
+      - Introduction: index.md
+      - Capabilities: capabilities.md
+      - Trust & Security: trust-security.md
       - Architecture: architecture.md
+  - Deploy:
+      - Getting Started: getting-started.md
       - Deployment: deployment.md
-      - Outreach Surfaces: outreach.md
-      - Security & Policy: security.md
-      - Core & Observability: core.md
-      - Control Stack: control-stack.md
       - Infrastructure: infra.md
       - CI/CD: ci-cd.md
+      - Outreach Surfaces: outreach.md
       - Scripts & Automation: scripts.md
-  - Ecosystem:
-      - Monorepo: monorepo.md
-      - Config System: config-system.md
-      - Metasystem: metasystem.md
-      - Public Release: public-release.md
-  - Apps:
-      - Ops Workspace:
-          - Overview: ops-workspace.md
-          - Public Site Builder: ops-public-site.md
-          - Discord Bot Operations: ops-discord-bot.md
+  - Products:
+      - Overview: overview.md
+      - Box Fulfillment:
+          - Product Strategy: box-strategy.md
+          - System Architecture: box-system-architecture.md
+          - Software Architecture: box-software-architecture.md
+          - Deployment: box-deployment.md
+          - Stripe Setup: box-stripe-setup.md
+          - Pack Station SOP: box-pack-station.md
+          - Box Builder: box-builder.md
+      - Voice:
+          - Overview: voice-overview.md
+          - Setup & Configuration: voice-setup.md
+          - API Reference: voice-api.md
+          - Packaging & Deployment: voice-packaging.md
       - nuc CLI: cli.md
-      - Runtime: runtime.md
       - Operator Dashboard: operator-dashboard.md
       - NucBot: nucbot.md
       - Customer VC: customer-vc.md
       - Customer VC Pilot: customer-vc-pilot.md
       - Discord Bot Runtime: discord-bot.md
+  - Operate:
+      - Ops Workspace:
+          - Overview: ops-workspace.md
+          - Public Site Builder: ops-public-site.md
+          - Discord Bot Operations: ops-discord-bot.md
+      - Runtime: runtime.md
+      - Core & Observability: core.md
+      - Security & Policy: security.md
+      - Control Stack: control-stack.md
+      - Troubleshooting: troubleshooting.md
+  - Compliance:
+      - Security Posture: compliance-security.md
+      - Accessibility: compliance-accessibility.md
+      - Data Residency: compliance-data.md
+      - Audit & Logging: compliance-audit.md
+      - Incident Response: compliance-incident.md
+      - Procurement: compliance-procurement.md
+  - Reference:
       - API Reference: api.md
       - Models: models.md
       - WebSocket & Real-time: websocket.md
-      - Examples: examples.md
-  - Voice:
-      - Overview: voice-overview.md
-      - Setup & Configuration: voice-setup.md
-      - API Reference: voice-api.md
-      - Packaging & Deployment: voice-packaging.md
-  - Box Fulfillment:
-      - Product Strategy: box-strategy.md
-      - System Architecture: box-system-architecture.md
-      - Software Architecture: box-software-architecture.md
-      - Deployment: box-deployment.md
-      - Stripe Setup: box-stripe-setup.md
-      - Pack Station SOP: box-pack-station.md
-      - Box Builder: box-builder.md
-  - Tech:
       - Configuration: configuration.md
       - Usage: usage.md
       - Templates & Builders: templates.md
       - Stripe Checkout Worker: stripe-checkout.md
-      - Troubleshooting: troubleshooting.md
+      - Monorepo: monorepo.md
+      - Config System: config-system.md
+      - Metasystem: metasystem.md
+      - Public Release: public-release.md
       - FAQ: faq.md
       - Glossary: glossary.md
       - Changelog: changelog.md
       - Build Log: build-log.md
+      - Lenses: lenses.md
+      - Site Map: sitemap.md
 
 plugins:
   - search:
