@@ -1,76 +1,173 @@
 # Templates & Builders
-Templates and builders are the starting points for new NeuNuc instances and custom stacks. They provide pre-configured project scaffolds with the correct dependencies, folder structure, and boilerplate.
 
-A builder is more than a template. It is a runnable application that lets operators configure, preview, and export a custom stack. The sovereign stack builder, for example, is a Vite-based React app that walks operators through selecting components, setting policies, and generating deployment artifacts.
+Static site templates and builder scaffolds for outreach, landing pages, and operational surfaces.
 
-**Location:** `templates/builders/`
+---
+
+## What Lives Here
+
+Builders are JSON-configured static HTML sites. No build step required — edit `site-config.json`, swap assets, and deploy.
+
+**Location:** `apps/neunuc-ops-workspace/templates/builders/`
 
 Current builders:
-- `sovereign-stack/` — Ethical AI framework builder
+- `public-access/` — Multi-page outreach site (index, about, services, contact, etc.)
 
-Shared tools:
-- `tools/lib/` — Common utilities used by all builders
+## Public Access Builder
 
-```powershell
-cd templates/builders/sovereign-stack
-pnpm run dev
-pnpm run build
-```
+The default outreach site template. A complete static site with product cards, pricing tables, lead capture, and privacy-first analytics.
 
-## Sovereign Stack Builder
-
-The Sovereign Stack Builder is an interactive tool for constructing constitutional AI systems. It demonstrates ethical AI principles through guided tours, contextual hints, and configurable policy engines. Operators use it to understand the framework before deploying it to production.
-
-- **Location:** `templates/builders/sovereign-stack/`
-- **Stack:** React 18, TypeScript, Vite, Tailwind CSS, shadcn/ui
-- **Key deps:** `@github/spark`, `@octokit/core`, `@heroicons/react`
+- **Location:** `apps/neunuc-ops-workspace/templates/builders/public-access/`
+- **Stack:** Pure HTML5, CSS3, vanilla JS
+- **Config:** `site-config.json` drives all content
+- **Deploy:** Direct upload to Cloudflare Pages
 
 ```powershell
-pnpm install
-pnpm run dev
-pnpm run build
-pnpm run build:analyze
+cd apps/neunuc-ops-workspace/templates/builders/public-access
+# Edit site-config.json, then deploy
+wrangler pages deploy .
 ```
 
-## Builder Architecture
+### Pages Included
 
-The builder follows a layered architecture: entry → core components → feature modules → utilities. This keeps the codebase modular and makes it easy to add new builders by copying the sovereign stack scaffold.
+| Page | File | Purpose |
+|------|------|---------|
+| Home | `index.html` | Landing with product cards + pricing |
+| About | `about.html` | Company / founder narrative |
+| Services | `services.html` | Service detail pages |
+| Method | `method.html` | Process / approach explainer |
+| Resources | `resources.html` | Downloads, docs, links |
+| Contact | `contact.html` | Lead capture form + Turnstile |
+| Accessibility | `accessibility.html` | WCAG statement |
+| Privacy | `privacy.html` | Privacy policy |
+| Terms | `terms.html` | Terms of service |
+| 404 | `404.html` | Fallback page |
 
-Structure:
-- `index.html` → `main.tsx` → `App.tsx` → `EthicalEngineDemo`
-- `src/components/` — Shared UI components
-- `src/features/` — Domain-specific modules
-- `src/lib/` — Utilities and hooks
-- `src/styles/` — Tailwind config and theme
+### Configuration
 
-```tsx
-// src/App.tsx
-import { EthicalEngineDemo } from "./features/ethical-engine";
+Edit `site-config.json`:
 
-export default function App() {
-  return (
-    <div className="min-h-screen bg-neutral-50">
-      <EthicalEngineDemo />
-    </div>
-  );
+```json
+{
+  "site": {
+    "name": "NeuNuc",
+    "tagline": "Ship smarter. Scale faster.",
+    "url": "https://neunuc.com"
+  },
+  "products": [
+    {
+      "id": "box-fulfillment",
+      "name": "Box Fulfillment",
+      "price": 29,
+      "period": "month"
+    }
+  ],
+  "integrations": {
+    "turnstile": {
+      "enabled": true,
+      "siteKey": "0x4AAAA..."
+    },
+    "stripe": {
+      "checkoutUrl": "https://neunuc-checkout.helkelx.workers.dev"
+    },
+    "analytics": {
+      "provider": "plausible",
+      "domain": "neunuc.com"
+    }
+  }
+}
+```
+
+### File Structure
+
+```
+templates/builders/public-access/
+├── index.html              # Landing page
+├── about.html
+├── services.html
+├── method.html
+├── resources.html
+├── contact.html
+├── accessibility.html
+├── privacy.html
+├── terms.html
+├── 404.html
+├── styles.css              # Single stylesheet
+├── site-custom.css         # Override layer
+├── app.js                  # Form handling + analytics init
+├── site-config.json        # Content + integrations
+├── site_manifest.json      # PWA manifest
+├── _headers                # Cloudflare Pages headers
+├── _redirects              # Redirect rules
+└── favicon.svg
+```
+
+### Customization
+
+**Change brand colors:**
+
+Edit `site-custom.css`:
+
+```css
+:root {
+  --accent: #4a7a9e;
+  --text: #1a1a1a;
+  --surface: #f7f8f9;
+}
+```
+
+**Add a product:**
+
+1. Add product object to `site-config.json → products`
+2. Add product image to the directory
+3. Reference image in config
+
+**Swap analytics provider:**
+
+```json
+{
+  "integrations": {
+    "analytics": {
+      "provider": "cloudflare",
+      "token": "your-cf-token"
+    }
+  }
 }
 ```
 
 ## Creating a New Builder
 
-To create a new builder, copy the sovereign-stack directory, rename the package, and replace the feature modules. The shared tooling (Vite config, Tailwind setup, lint rules) stays the same.
-
-1. Copy `templates/builders/sovereign-stack/` to `templates/builders/{name}/`
-2. Update `package.json` name and description
-3. Replace `src/features/` with new domain logic
-4. Update `index.html` title and meta tags
-5. Add builder to `templates/builders/README.md`
+To scaffold a new builder, copy the public-access directory and replace the HTML files:
 
 ```powershell
-# Scaffold new builder
-Copy-Item -Recurse templates/builders/sovereign-stack templates/builders/analytics-builder
-cd templates/builders/analytics-builder
+# From repo root
+Copy-Item -Recurse apps/neunuc-ops-workspace/templates/builders/public-access `
+  apps/neunuc-ops-workspace/templates/builders/my-builder
 
-# Update package name
-(Get-Content package.json) -replace 'sovereign-stack', 'analytics-builder' | Set-Content package.json
+cd apps/neunuc-ops-workspace/templates/builders/my-builder
+
+# Edit config
+notepad site-config.json
+
+# Deploy
+wrangler pages deploy .
 ```
+
+A builder needs only:
+- Static HTML files
+- `site-config.json` for content
+- Optional `site-custom.css` for theme overrides
+- Optional JS for form handling
+
+## Deploy Checklist
+
+Before deploying any builder:
+
+- [ ] `site-config.json` has correct site URL and name
+- [ ] Product data and pricing are current
+- [ ] Turnstile site key is set (if enabled)
+- [ ] Stripe checkout URL points to active worker
+- [ ] Analytics domain matches deploy target
+- [ ] Privacy policy reflects actual data practices
+- [ ] `_headers` and `_redirects` are configured
+- [ ] `404.html` exists
