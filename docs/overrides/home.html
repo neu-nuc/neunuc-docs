@@ -1,0 +1,142 @@
+{% extends "main.html" %}
+
+{% block content %}
+  <div class="nn-landing">
+
+    <!-- Hero -->
+    <section class="nn-hero">
+      <div class="nn-hero__inner">
+        <h1 class="nn-hero__title">NeuNuc</h1>
+        <p class="nn-hero__subtitle">AI infrastructure that stays under your control.</p>
+        <p class="nn-hero__body">Run inference on your hardware. Keep data in your environment. Deploy products without leaking prompts to third-party APIs.</p>
+        <div class="nn-hero__cta">
+          <a href="getting-started/" class="nn-btn nn-btn--primary">Deploy in 10 minutes</a>
+          <a href="architecture/" class="nn-btn nn-btn--secondary">Architecture</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="nn-section">
+      <h2 class="nn-section__title">Capabilities</h2>
+      <div class="nn-grid nn-grid--3">
+        <div class="nn-card">
+          <div class="nn-card__icon">{% include ".icons/brain.svg" %}</div>
+          <h3 class="nn-card__title">Inference</h3>
+          <p class="nn-card__text">ONNX, llama.cpp, and Ollama backends. CPU or GPU. No external API calls required.</p>
+        </div>
+        <div class="nn-card">
+          <div class="nn-card__icon">{% include ".icons/dashboard.svg" %}</div>
+          <h3 class="nn-card__title">Memory</h3>
+          <p class="nn-card__text">Flat JSON with TTL, tagging, and semantic search. Query across sessions without a database.</p>
+        </div>
+        <div class="nn-card">
+          <div class="nn-card__icon">{% include ".icons/server.svg" %}</div>
+          <h3 class="nn-card__title">State</h3>
+          <p class="nn-card__text">Persistent key-value storage across reboots. Human-readable, diffable, versionable.</p>
+        </div>
+        <div class="nn-card">
+          <div class="nn-card__icon">{% include ".icons/websocket.svg" %}</div>
+          <h3 class="nn-card__title">WebSocket</h3>
+          <p class="nn-card__text">Real-time broadcast to connected clients. Sub-100ms round-trip on local networks.</p>
+        </div>
+        <div class="nn-card">
+          <div class="nn-card__icon">{% include ".icons/cli.svg" %}</div>
+          <h3 class="nn-card__title">CLI</h3>
+          <p class="nn-card__text">Single Windows executable. Talk to local or remote backends with the same commands.</p>
+        </div>
+        <div class="nn-card">
+          <div class="nn-card__icon">{% include ".icons/cloud-upload.svg" %}</div>
+          <h3 class="nn-card__title">Static sites</h3>
+          <p class="nn-card__text">Config-driven HTML surfaces. Deploy to Cloudflare Pages in one command.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="nn-section nn-section--muted">
+      <div class="nn-split">
+        <div class="nn-split__text">
+          <h2 class="nn-section__title">Architecture</h2>
+          <p>NeuNuc is a hybrid Python + Node.js system designed to boot in under a second.</p>
+          <p><strong>Python (port 8400)</strong> handles inference, memory, state, and orchestration via FastAPI.</p>
+          <p><strong>Node.js (port 3400)</strong> serves HTML surfaces and proxies API calls.</p>
+          <p><strong>Storage</strong> is flat JSON — no database to manage, no Docker swarm to debug.</p>
+          <a href="architecture/" class="nn-link">Read the full architecture map →</a>
+        </div>
+        <div class="nn-split__visual">
+          <div class="nn-arch-diagram">
+            <div class="nn-arch-node nn-arch-node--python">Python<br><small>8400</small></div>
+            <div class="nn-arch-arrow">→</div>
+            <div class="nn-arch-node nn-arch-node--node">Node.js<br><small>3400</small></div>
+            <div class="nn-arch-arrow">→</div>
+            <div class="nn-arch-node nn-arch-node--storage">Flat JSON<br><small>State + Memory</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust -->
+    <section class="nn-section">
+      <h2 class="nn-section__title">Trust</h2>
+      <div class="nn-grid nn-grid--4">
+        <div class="nn-stat">
+          <div class="nn-stat__value">Default-deny</div>
+          <div class="nn-stat__label">Every integration is opt-in. Analytics, payments, Discord — all disabled until you enable them.</div>
+        </div>
+        <div class="nn-stat">
+          <div class="nn-stat__value">NIST 800-53</div>
+          <div class="nn-stat__label">Control mappings documented. FedRAMP Moderate path targeting Q4 2026.</div>
+        </div>
+        <div class="nn-stat">
+          <div class="nn-stat__value">Request tracing</div>
+          <div class="nn-stat__label">Every gate check generates a unique ID. Last 500 decisions are inspectable in memory.</div>
+        </div>
+        <div class="nn-stat">
+          <div class="nn-stat__value">Audit-ready</div>
+          <div class="nn-stat__label">Structured JSON logs. SIEM export. 7-year retention support out of the box.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section class="nn-section nn-section--muted">
+      <h2 class="nn-section__title">Products built on NeuNuc</h2>
+      <div class="nn-grid nn-grid--3">
+        <div class="nn-card nn-card--product">
+          <div class="nn-card__icon">{% include ".icons/box.svg" %}</div>
+          <h3 class="nn-card__title">Box Fulfillment</h3>
+          <p class="nn-card__text">Subscription box logistics with Stripe checkout and Cloudflare Workers. End-to-end order-to-door.</p>
+          <a href="box/" class="nn-link">Learn more →</a>
+        </div>
+        <div class="nn-card nn-card--product">
+          <div class="nn-card__icon">{% include ".icons/voice.svg" %}</div>
+          <h3 class="nn-card__title">Voice</h3>
+          <p class="nn-card__text">On-device voice assistant with wake word detection, speech-to-text, and text-to-speech.</p>
+          <a href="voice/" class="nn-link">Learn more →</a>
+        </div>
+        <div class="nn-card nn-card--product">
+          <div class="nn-card__icon">{% include ".icons/abstract.svg" %}</div>
+          <h3 class="nn-card__title">Customer VC</h3>
+          <p class="nn-card__text">WebRTC video conferencing with AI moderation and real-time transcription.</p>
+          <a href="customer-vc/" class="nn-link">Learn more →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="nn-section nn-section--center">
+      <h2 class="nn-section__title">Ready to deploy?</h2>
+      <p class="nn-section__lead">Install and boot a local inference backend in under 10 minutes.</p>
+      <div class="nn-hero__cta">
+        <a href="getting-started/" class="nn-btn nn-btn--primary">Get started</a>
+        <a href="compliance-security/" class="nn-btn nn-btn--secondary">Review compliance</a>
+      </div>
+    </section>
+
+    <footer class="nn-landing-footer">
+      <p>NeuNuc Systems LLC · Built in the United States</p>
+    </footer>
+
+  </div>
+{% endblock %}

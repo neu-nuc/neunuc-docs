@@ -351,6 +351,337 @@
   font-weight: 500;
 }
 
+/* ==========================================================================
+   Landing page overrides
+   ========================================================================== */
+
+/* Hide sidebar + TOC on landing page */
+.md-main__inner:has(.nn-landing) .md-sidebar,
+.md-main__inner:has(.nn-landing) .md-sidebar--secondary {
+  display: none;
+}
+
+.md-main__inner:has(.nn-landing) .md-content {
+  max-width: 100%;
+  margin: 0;
+}
+
+.md-main__inner:has(.nn-landing) .md-content__inner {
+  padding: 0;
+}
+
+/* Remove default article padding for landing */
+.nn-landing {
+  padding: 0;
+}
+
+/* ---- Hero ---- */
+.nn-hero {
+  background: var(--nn-hero-bg);
+  padding: 6rem 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--nn-border);
+}
+
+.nn-hero__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.nn-hero__title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+  color: var(--nn-text);
+}
+
+.nn-hero__subtitle {
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--nn-text-muted);
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+
+.nn-hero__body {
+  font-size: 1.05rem;
+  color: var(--nn-text-muted);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+/* ---- Buttons ---- */
+.nn-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--nn-radius);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  border: 1px solid transparent;
+}
+
+.nn-btn--primary {
+  background: var(--nn-accent);
+  color: #fff;
+  border-color: var(--nn-accent);
+}
+
+.nn-btn--primary:hover {
+  background: var(--nn-text);
+  border-color: var(--nn-text);
+  color: #fff;
+}
+
+.nn-btn--secondary {
+  background: transparent;
+  color: var(--nn-text);
+  border-color: var(--nn-border);
+}
+
+.nn-btn--secondary:hover {
+  border-color: var(--nn-accent);
+  color: var(--nn-accent);
+}
+
+.nn-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* ---- Sections ---- */
+.nn-section {
+  padding: 4rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.nn-section--muted {
+  background: var(--nn-surface);
+  border-top: 1px solid var(--nn-border);
+  border-bottom: 1px solid var(--nn-border);
+}
+
+.nn-section--center {
+  text-align: center;
+}
+
+.nn-section__title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  color: var(--nn-text);
+  border: none;
+  padding: 0;
+}
+
+.nn-section--center .nn-section__title {
+  margin-bottom: 0.75rem;
+}
+
+.nn-section__lead {
+  color: var(--nn-text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* ---- Grid ---- */
+.nn-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.nn-grid--3 {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.nn-grid--4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+@media (max-width: 640px) {
+  .nn-grid--3,
+  .nn-grid--4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Cards ---- */
+.nn-card {
+  background: var(--nn-surface);
+  border: 1px solid var(--nn-border);
+  border-radius: var(--nn-radius);
+  padding: 1.5rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.nn-card:hover {
+  border-color: var(--nn-accent);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.nn-card__icon {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--nn-accent);
+}
+
+.nn-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.nn-card__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--nn-text);
+}
+
+.nn-card__text {
+  font-size: 0.9rem;
+  color: var(--nn-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.nn-card--product .nn-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+/* ---- Stats / Trust ---- */
+.nn-stat {
+  text-align: left;
+  padding: 1rem 0;
+}
+
+.nn-stat__value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--nn-text);
+  margin-bottom: 0.4rem;
+}
+
+.nn-stat__label {
+  font-size: 0.85rem;
+  color: var(--nn-text-muted);
+  line-height: 1.55;
+}
+
+/* ---- Split layout ---- */
+.nn-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .nn-split {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.nn-split__text p {
+  color: var(--nn-text-muted);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.nn-split__text strong {
+  color: var(--nn-text);
+}
+
+/* ---- Architecture diagram ---- */
+.nn-arch-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--nn-border);
+  border-radius: var(--nn-radius);
+}
+
+.nn-arch-node {
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--nn-radius);
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.nn-arch-node small {
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.nn-arch-node--python {
+  background: var(--nn-accent-soft);
+  border: 1px solid var(--nn-accent);
+  color: var(--nn-accent);
+}
+
+.nn-arch-node--node {
+  background: var(--nn-accent-soft);
+  border: 1px solid var(--nn-accent);
+  color: var(--nn-accent);
+}
+
+.nn-arch-node--storage {
+  background: rgba(0,0,0,0.03);
+  border: 1px solid var(--nn-border);
+  color: var(--nn-text-muted);
+}
+
+[data-md-color-scheme="slate"] .nn-arch-node--storage {
+  background: rgba(255,255,255,0.03);
+}
+
+.nn-arch-arrow {
+  color: var(--nn-text-muted);
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+/* ---- Links inside landing ---- */
+.nn-link {
+  color: var(--nn-accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nn-link:hover {
+  text-decoration: underline;
+}
+
+/* ---- Landing footer ---- */
+.nn-landing-footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border-top: 1px solid var(--nn-border);
+  color: var(--nn-text-muted);
+  font-size: 0.85rem;
+}
+
 /* ---- Print styles ---- */
 @media print {
   .md-header,

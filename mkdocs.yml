@@ -62,6 +62,7 @@ theme:
 nav:
   - Launch:
       - Introduction: index.md
+      - About: about.md
       - Capabilities: capabilities.md
       - Trust & Security: trust-security.md
       - Architecture: architecture.md
