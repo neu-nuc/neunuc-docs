@@ -4,7 +4,7 @@ site_url: https://docs.neunuc.com/
 repo_url: https://github.com/neu-nuc/neunuc
 repo_name: neu-nuc/neunuc
 edit_uri: edit/main/docs/
-copyright: Copyright &copy; 2025 NeuNuc
+copyright: Copyright &copy; 2025 Helen Kella NeuNuc LLC
 
 theme:
   name: material
